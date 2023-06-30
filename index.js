@@ -16,6 +16,7 @@ ES. L'utente Marco Rossi e' un ambassador, quindi la frase dovrebbe essere "Marc
 Infine, crea un SECONDO array in cui inserirai SOLO gli ambassador.
 */
 
+
 const marco = {
   name: "Marco",
   lastName: "Rossi",
@@ -34,6 +35,66 @@ const amy = {
   isAmbassador: false,
 }
 
-const prices = [34, 5, 2]
+const john = {  // aggiunto nuovo utente (come oggetto) per testare array.push() nel esercizio punto 6
+  name: "John",
+  lastName: "Cena",
+  isAmbassador: true,
+}
+
+const brambilla = { // aggiunto nuovo utente (come oggetto) per testare array.push() nel esercizio punto 6
+  name: "Brambilla",
+  lastName: "Fumagalli",
+  isAmbassador: false,
+}
+
+const aldo = {    // aggiunto nuovo utente (come oggetto) per testare array.push() nel esercizio punto 6
+  name: "Aldo",
+  lastName: "Baglio",
+  isAmbassador: true,
+}
+
+
+const prices = [34, 5, 20]
 const shippingCost = 50
-let utenteCheEffettuaLAcquisto = amy //cambia il valore qui per provare se il tuo algoritmo funziona!
+let utenteCheEffettuaLAcquisto = paul //cambia il valore qui per provare se il tuo algoritmo funziona!
+
+// punti 1, 2, 3, 4, 5 degli esercizi descritti sulla piattaforma EPICODE
+let totalPrice = 0
+
+for (let i = 0; i < prices.length; i++) {
+  if (utenteCheEffettuaLAcquisto.isAmbassador) {
+    totalPrice += prices - ((prices[i]) * 0.3)
+  } else {
+    totalPrice += prices[i]
+  }
+}
+
+if (totalPrice <= 100){
+  console.log(utenteCheEffettuaLAcquisto.name + " " + (totalPrice + shippingCost)) 
+} else {
+ console.log(utenteCheEffettuaLAcquisto.name + " " + totalPrice)
+}
+
+// punto 6 degli esercizi descritti sulla piattaforma EPICODE
+const users = []
+users.push(marco, paul, amy, john, brambilla, aldo)
+
+for (let i = 0; i < users.length; i++) {
+  const utente = users[i]
+  if (utente.isAmbassador === true) {
+      console.log(utente.name + " " + utente.lastName + " " + "è un ambassador")
+  } else {
+    console.log(utente.name + " " + utente.lastName + " " + "NON è un ambassador")
+  }
+}
+
+// punto 7 degli esercizi descritti sulla piattaforma EPICODE
+let ambassadors = []
+
+for (let i = 0; i < users.length; i++) {
+  const utente = users[i]
+  if(utente.isAmbassador === true) {
+    ambassadors.push(utente)
+  }   
+}
+console.log(ambassadors)
